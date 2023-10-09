@@ -6,6 +6,12 @@ mostrar_logs_exitosos() {
   grep "Accepted" $LOG_FILE
 }
 
+# Función para mostrar logs fallidos del sistema
+mostrar_logs_fallidos() {
+  LOG_FILE="/var/log/secure"
+  grep "Failed password" $LOG_FILE
+}
+
 # Función para mostrar el menú y obtener la selección del usuario
 mostrar_menu() {
   echo "Selecciona una opción:"
@@ -17,6 +23,7 @@ mostrar_menu() {
         ;;
       2)
         echo "Has seleccionado: $opcion"
+        mostrar_logs_fallidos
         ;;
       3)
         echo "Cerrando script."
