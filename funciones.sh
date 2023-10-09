@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Función para mostrar logs exitosos del sistema
+mostrar_logs_exitosos() {
+  LOG_FILE="/var/log/secure"
+  grep "Accepted" $LOG_FILE
+}
 
 # Función para mostrar el menú y obtener la selección del usuario
 mostrar_menu() {
@@ -8,11 +13,10 @@ mostrar_menu() {
     case $REPLY in
       1)
         echo "Has seleccionado: $opcion"
-        # Agrega aquí el código para la Opción 1
+        mostrar_logs_exitosos
         ;;
       2)
         echo "Has seleccionado: $opcion"
-        # Agrega aquí el código para la Opción 2
         ;;
       3)
         echo "Cerrando script."
